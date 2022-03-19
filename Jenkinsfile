@@ -1,8 +1,9 @@
 node {
     checkout scm
 
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerhubcredentials'){
-        def customImage = docker.build("quiev/dockerapp")
-        customImage.push()
+    def customImage = docker.build("my-image")
+
+    customImage.inside {
+        sh 'npm start'
     }
 }
