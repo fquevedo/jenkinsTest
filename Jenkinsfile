@@ -1,12 +1,17 @@
 
 pipeline {
-    checkout scm
+    environment {
+        imagename = "yenigul/hacicenkins"
+        dockerImage = ''
+    }
     agent any 
     stages {
-        stage('Build') { 
-            steps {
-                def customImage = docker.build("my-image")
+        stage('Building image') {
+        steps{
+            script {
+            dockerImage = docker.build imagename
             }
+        }
         }
         stage('Test') { 
             steps {
