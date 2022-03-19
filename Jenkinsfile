@@ -2,9 +2,12 @@ pipeline {
     agent {
         dockerfile true
     }
-    stage('example'){
-        steps{
-            echo 'Hello world!'
+    stages {
+        stage('example'){
+            steps{
+                echo 'Hello world!'
+            }
         }
     }
+
 }
