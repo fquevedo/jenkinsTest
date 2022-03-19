@@ -7,11 +7,11 @@ pipeline {
     agent any 
     stages {
         stage('Building image') {
-        steps{
-            script {
-            dockerImage = docker.build imagename
+            steps{
+                script {
+                    dockerImage = docker.build imagename
+                }
             }
-        }
         }
         stage('Test') { 
             steps {
