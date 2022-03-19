@@ -1,13 +1,22 @@
+
 pipeline {
-    agent {
-        dockerfile true
-    }
+    checkout scm
+    agent any 
     stages {
-        stage('example'){
-            steps{
-                echo 'Hello world!'
+        stage('Build') { 
+            steps {
+                def customImage = docker.build("my-image")
+            }
+        }
+        stage('Test') { 
+            steps {
+                // 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                // 
             }
         }
     }
-
 }
