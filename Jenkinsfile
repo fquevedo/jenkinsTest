@@ -1,9 +1,10 @@
-node {
-    checkout scm
-
-    def customImage = docker.build("my-image")
-
-    customImage.inside {
-        sh 'npm start'
+pipeline {
+    agent {
+        dockerfile true
+    }
+    stage('example'){
+        steps{
+            echo 'Hello world!'
+        }
     }
 }
