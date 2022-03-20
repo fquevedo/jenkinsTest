@@ -6,10 +6,17 @@ pipeline {
     }
     agent any 
     stages {
-        stage('Building image') {
+        stage('Building docker image') {
             steps{
                 script {
                     dockerImage = docker.build imagename
+                }
+            }
+        }
+        stage('Run docker image') {
+            steps{
+                script {
+                    docker.run imagename
                 }
             }
         }
