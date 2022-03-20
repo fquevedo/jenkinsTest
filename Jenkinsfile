@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { label "principal"} 
+    agent any
     stages {
         stage('Building docker image') {
             steps{
