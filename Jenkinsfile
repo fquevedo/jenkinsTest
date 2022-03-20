@@ -14,7 +14,10 @@ pipeline {
             }
         }
         stage('Run Unit Test') {
-            sh 'npm run test'
+            steps{
+                sh 'npm run test'
+            }
+            
         }
     }
 }
