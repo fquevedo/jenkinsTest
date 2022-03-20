@@ -1,23 +1,19 @@
 
 pipeline {
-    environment {
-        imagename = "yenigul/hacicenkins"
-        dockerImage = ''
-    }
-    agent any 
+    agent { label "linux"} 
     stages {
         stage('Building docker image') {
             steps{
-                script {
-                    dockerImage = docker.build imagename
-                }
+                sh """
+                    docker build -t hello_there .
+                """
             }
         }
         stage('Run docker image') {
             steps{
-                script {
-                    docker.run imagename
-                }
+                sh """
+                    docker run --rm hello_there
+                """
             }
         }
         stage('Run Unit Test') {
