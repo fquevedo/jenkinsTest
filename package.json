@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node --experimental-vm-modules node_modules/jest/bin/jest.js && node src/server.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "ingest": "node src/database/xmlIngest.js",
+    "db": "node src/database/connection.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,9 @@
   "homepage": "https://github.com/fquevedo/jenkinsTest#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "mongodb": "^4.4.1"
+    "http": "^0.0.1-security",
+    "mongodb": "^4.4.1",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "jest": "^27.5.1",
